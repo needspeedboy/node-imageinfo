@@ -145,7 +145,7 @@ function imageInfoSwf(buffer) {
 	if (buffer[0] === 0x43) {
 		try {
 			// If you have zlib available ( npm install zlib ) then we can read compressed flash files
-			buffer = require('zlib').inflate(buffer.slice(8, 100));
+			buffer = require('zlib').inflateSync(buffer.slice(8, buffer.length));
 			pos = 0;
 		}
 		catch (ex) {
